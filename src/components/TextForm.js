@@ -56,11 +56,11 @@ function TextForm(props) {
     }
 
     return (
-        <>
+        <div style={props.themeStyle}>
             <div className='container'>
                 <div className="mb-3">
                     <h1>{props.heading}</h1>
-                    <textarea className="form-control" value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows={3} />
+                    <textarea className="form-control" style={{ color: props.mode === 'dark' ? 'white' : 'black', backgroundColor: props.mode === 'dark' ? 'grey' : 'white' }} value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows={3} />
                 </div>
                 <button className="btn btn-primary mx-1" type='button' onClick={handleSentClick}>Sentence Case</button>
                 <button className="btn btn-primary mx-1" type='button' onClick={handleUpClick}>Uppercase</button>
@@ -78,7 +78,7 @@ function TextForm(props) {
                 <h3>Preview</h3>
                 <p>{text}</p>
             </div>
-        </>
+        </div>
     )
 }
 
