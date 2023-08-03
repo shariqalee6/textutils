@@ -4,15 +4,19 @@ function TextForm(props) {
     const [text, setText] = useState("")
     const handleUpClick = () => {
         setText(text.toUpperCase())
+        props.showAlert("Converted to Uppercase", "success")
     }
     const handleLoClick = () => {
         setText(text.toLowerCase())
+        props.showAlert("Converted to Lowercase", "success")
     }
     const handleClearClick = () => {
         setText('')
+        props.showAlert("Clear Text", "success")
     }
     const handleSentClick = () => {
         setText(text.charAt(0).toUpperCase() + text.slice(1).toLowerCase())
+        props.showAlert("Converted to Sentense Case", "success")
     }
     const handleCapClick = () => {
         setText(text
@@ -20,6 +24,7 @@ function TextForm(props) {
             .split(" ")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" "))
+        props.showAlert("Converted to Capitalize", "success")
     }
     const handleAltClick = () => {
         let result = "";
@@ -31,6 +36,7 @@ function TextForm(props) {
             }
         }
         setText(result)
+        props.showAlert("Converted to Alternating Case", "success")
     }
     const handleTitleClick = () => {
         setText(text
@@ -38,6 +44,7 @@ function TextForm(props) {
             .split(" ")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" "))
+            props.showAlert("Converted to Title Case", "success")
     }
     const handleInvClick = () => {
         let result = "";
@@ -50,6 +57,7 @@ function TextForm(props) {
             }
         }
         setText(result)
+        props.showAlert("Converted to Inverse", "success")
     }
     const handleOnChange = (event) => {
         setText(event.target.value)
