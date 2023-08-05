@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
+// import { Link } from 'react-router-dom'
+//add color pallets in navbar of bootstrap 5?
 function Navbar(props) {
   return (
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
@@ -14,26 +15,38 @@ function Navbar(props) {
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/">Link</a>
+            {/* <li className="nav-item">
+              <a className="nav-link" to="/about">About</a>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Dropdown
-              </a>
               <ul className="dropdown-menu">
                 <li><a className="dropdown-item" href="/">Action</a></li>
                 <li><a className="dropdown-item" href="/">Another action</a></li>
                 <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="/">Something else here</a></li>
               </ul>
-            </li>
-            <li className="nav-item">
-              <a href="/" className="nav-link disabled" aria-disabled="true">Disabled</a>
-            </li>
+            </li> */}
           </ul>
+          {/* <div className="d-flex">
+            <div className="color-pallets">
+              <ul className="colorpicker" id="skin-changer">
+                <li className="colorpick-btn" style={{ backgroundColor: '#5DB2FF' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#2dc3e8' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#03B3B2' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#53a93f' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#FF8F32' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#cc324b' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#AC193D' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#8C0095' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#0072C6' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#585858' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#474544' }}></li>
+                <li className="colorpick-btn" style={{ backgroundColor: '#001940' }}></li>
+              </ul>
+            </div>
+          </div> */}
           <div className="form-check form-switch">
-            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={props.toggle}/>
+            <input className="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" onChange={props.toggle} />
             <label className="form-check-label" style={props.themeStyle} htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
           </div>
           {/* 
