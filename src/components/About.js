@@ -1,27 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function About(props) {
-    let darkMode = {
-        color: 'white',
-        backgroundColor: 'black'
-    }
-    let lightMode = {
-        color: 'black',
-        backgroundColor: 'white'
-    }
-
-    let [myStyle, setStyle] = useState(lightMode)
-    let [btnText, setBtnText] = useState('Dark Mode')
-    const handleMode = () => {
-        if (myStyle.color === "white") {
-            setStyle(lightMode)
-            setBtnText("Dark Mode")
-        }
-        else {
-            setStyle(darkMode)
-            setBtnText("Light Mode")
-        }
-    }
     return (
         <div className='container' style={props.themeStyle}>
             <h1 className='my-2'>About Us</h1>
@@ -63,7 +42,7 @@ function About(props) {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-primary my-3" onClick={handleMode}>{btnText}</button>
+            {/* <button className="btn btn-primary my-3" onClick={handleMode}>{btnText}</button> */}
         </div>
 
     )

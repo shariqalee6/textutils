@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 //add color pallets in navbar of bootstrap 5?
 function Navbar(props) {
   return (
@@ -13,10 +13,10 @@ function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <Link className="nav-link" aria-current="page" to="/">Home</Link>
             </li>
-            {/* <li className="nav-item">
-              <a className="nav-link" to="/about">About</a>
+            <li className="nav-item">
+              <Link className="nav-link" to="/about">About</Link>
             </li>
             <li className="nav-item dropdown">
               <ul className="dropdown-menu">
@@ -25,7 +25,7 @@ function Navbar(props) {
                 <li><hr className="dropdown-divider" /></li>
                 <li><a className="dropdown-item" href="/">Something else here</a></li>
               </ul>
-            </li> */}
+            </li>
           </ul>
           {/* <div className="d-flex">
             <div className="color-pallets">

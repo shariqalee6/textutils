@@ -44,7 +44,7 @@ function TextForm(props) {
             .split(" ")
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
             .join(" "))
-            props.showAlert("Converted to Title Case", "success")
+        props.showAlert("Converted to Title Case", "success")
     }
     const handleInvClick = () => {
         let result = "";
@@ -59,6 +59,10 @@ function TextForm(props) {
         setText(result)
         props.showAlert("Converted to Inverse", "success")
     }
+    const handleCopyClick = () => {
+        navigator.clipboard.writeText(text)
+        props.showAlert("Text copied to clipboard", "success")
+    }
     const handleOnChange = (event) => {
         setText(event.target.value)
     }
@@ -70,18 +74,19 @@ function TextForm(props) {
                     <h1>{props.heading}</h1>
                     <textarea className="form-control" style={{ color: props.mode === 'dark' ? 'white' : 'black', backgroundColor: props.mode === 'dark' ? 'grey' : 'white' }} value={text} onChange={handleOnChange} id="exampleFormControlTextarea1" rows={3} />
                 </div>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleSentClick}>Sentence Case</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleUpClick}>Uppercase</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleLoClick}>Lowercase</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleCapClick}>Capitalized Case</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleAltClick}>Alternating Case</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleTitleClick}>Title Case</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleInvClick}>Inverse Case</button>
-                <button className="btn btn-primary mx-1" type='button' onClick={handleClearClick}>Clear</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleSentClick}>Sentence Case</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleUpClick}>Uppercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleLoClick}>Lowercase</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleCapClick}>Capitalized Case</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleAltClick}>Alternating Case</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleTitleClick}>Title Case</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleInvClick}>Inverse Case</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleCopyClick}>Copy Text</button>
+                <button disabled={text.length === 0} className="btn btn-primary mx-1" type='button' onClick={handleClearClick}>Clear</button>
             </div>
             <div className="container my-3">
                 <h2>Text Summary</h2>
-                <p>{text.split(" ").length} words</p>
+                <p>{text.split(/\s+/).filter((element) => { return element.length !== 0 }).length} words</p>
                 <p>{text.length} characters</p>
                 <h3>Preview</h3>
                 <p>{text}</p>

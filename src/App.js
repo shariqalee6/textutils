@@ -6,11 +6,11 @@ import { useState } from "react";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
-// import {
-//   BrowserRouter as Router,
-//   Routes,
-//   Route
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
 
 function App() {
   let darkMode = {
@@ -54,17 +54,17 @@ function App() {
   // i want to add a widget on navbar which have differnt colors and when i clock on relevent color it change the whole theme with same color ?
   return (
     <>
-      {/* <Router> */}
-      <Navbar title="Text Utils Application" mode={mode} toggle={toggleMode} themeStyle={themeStyle} />
-      <Alert alert={alert} />
-      <TextForm heading="Enter Text to Anaylze" mode={mode} themeStyle={themeStyle} showAlert={showAlert} />
-      <div className="container my-3">
-        {/* <Routes>
+      <Router>
+        <Navbar title="Text Utils Application" mode={mode} toggle={toggleMode} themeStyle={themeStyle} />
+        <Alert alert={alert} />
+        {/* <TextForm heading="Enter Text to Anaylze" mode={mode} themeStyle={themeStyle} showAlert={showAlert} /> */}
+        <div className="container my-3">
+          <Routes>
             <Route exact path="/" element={<TextForm heading="Enter Text to Anaylze" mode={mode} themeStyle={themeStyle} showAlert={showAlert} />} />
             <Route exact path="/about" element={<About themeStyle={themeStyle} />} />
-          </Routes> */}
-      </div>
-      {/* </Router> */}
+          </Routes>
+        </div>
+      </Router>
     </>
   );
 }
